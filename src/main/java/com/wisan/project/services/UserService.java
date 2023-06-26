@@ -1,4 +1,4 @@
-package com.wisan.project.service;
+package com.wisan.project.services;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.wisan.project.entities.User;
 import com.wisan.project.repositories.UserRepository;
+import com.wisan.project.service.exceptions.ResourceNotFundException;
 
 @Service
 public class UserService {
@@ -19,7 +20,7 @@ public class UserService {
 	}
 
 	public User findById(Long id) {
-		return userRepository.findById(id).get();
+		return userRepository.findById(id).orElseThrow(() -> new ResourceNotFundException(id));
 	}
 	
 	public User insert(User obj) {

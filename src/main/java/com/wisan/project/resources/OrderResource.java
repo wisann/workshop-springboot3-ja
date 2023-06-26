@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wisan.project.entities.Order;
-import com.wisan.project.service.OrderService;
+import com.wisan.project.services.OrderService;
 
 @RestController
 @RequestMapping(value = "/orders")

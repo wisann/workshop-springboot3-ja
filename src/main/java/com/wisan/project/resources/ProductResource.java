@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wisan.project.entities.Product;
-import com.wisan.project.service.ProductService;
+import com.wisan.project.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")

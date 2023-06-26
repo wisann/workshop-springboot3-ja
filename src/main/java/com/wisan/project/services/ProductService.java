@@ -1,4 +1,4 @@
-package com.wisan.project.service;
+package com.wisan.project.services;
 
 import java.util.List;
 

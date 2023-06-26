@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.wisan.project.entities.User;
-import com.wisan.project.service.UserService;
+import com.wisan.project.services.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -48,7 +48,7 @@ public class UserResource {
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Long id){
 		userService.delete(id);
-		 return ResponseEntity.noContent().build();
+		return ResponseEntity.noContent().build();
 	}
 	
 	@PutMapping(value = "/{id}")
