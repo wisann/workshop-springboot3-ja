@@ -55,6 +55,14 @@ public class Order implements Serializable {
 		this.client = client;
 		this.orderStatus = orderStatus;
 	}
+	
+	public Double getTotal() {
+		Double sum = 0.0;
+		for(OrderItem x : items) {
+			sum = sum + x.getSubTotal();
+		}
+		return sum;
+	}
 
 	public Order() {
 
@@ -91,12 +99,7 @@ public class Order implements Serializable {
 	public void setOrderStatus(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
+	
 	public Set<OrderItem> getItems() {
 		return items;
 	}
@@ -107,6 +110,12 @@ public class Order implements Serializable {
 
 	public void setPayment(Payment payment) {
 		this.payment = payment;
+	}
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
 	@Override
