@@ -10,6 +10,8 @@ import com.wisan.project.entities.User;
 import com.wisan.project.repositories.UserRepository;
 import com.wisan.project.service.exceptions.ResourceNotFundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class UserService {
 
@@ -43,9 +45,14 @@ public class UserService {
 	}
 
 	public User update(Long id, User obj) {
-		User entity = userRepository.getReferenceById(id);
+		try{
+			User entity = userRepository.getReferenceById(id);
 		updateData(entity, obj);
 		return userRepository.saveAndFlush(entity);
+		}catch(EntityNotFoundException e) {
+			throw new ResourceNotFundException(id);
+		}
+		
 	}
 
 	private void updateData(User entity, User obj) {
