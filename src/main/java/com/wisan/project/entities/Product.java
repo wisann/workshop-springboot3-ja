@@ -50,6 +50,11 @@ public class Product implements Serializable {
 		this.price = price;
 		this.imgUrl = imgUrl;
 	}
+	
+	public void addCategory(Category category) {
+	    categories.add(category);
+	    category.getProducts().add(this);
+	}
 
 	public Long getId() {
 		return id;
@@ -95,6 +100,11 @@ public class Product implements Serializable {
 		return categories;
 	}
 	
+	
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
+
 	@JsonIgnore
 	public Set<Order> getOrders(){
 		Set<Order> set = new HashSet<>();

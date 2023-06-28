@@ -21,4 +21,16 @@ public class ProductService {
 	public Product findById(Long id) {
 		return productRepository.findById(id).get();
 	}
+	
+	public Product insert(Product product) {
+		product.setName(product.getName());
+		product.setDescription(product.getDescription());
+		product.setPrice(product.getPrice());
+		product.setImgUrl(product.getImgUrl());
+		product.setCategories(product.getCategories());
+		return productRepository.saveAndFlush(product);
+	}
+
+	
+	
 }
