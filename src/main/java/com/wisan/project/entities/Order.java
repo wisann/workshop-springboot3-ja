@@ -96,7 +96,7 @@ public class Order implements Serializable {
 		return orderStatus;
 	}
 
-	public void setOrderStatus(OrderStatus orderStatus) {
+	public void setOrderStatusA(OrderStatus orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 	
